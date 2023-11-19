@@ -38,8 +38,6 @@ public class Application {
         Paciente paciente = new Paciente();
         paciente.setCpf("16671332762");
         paciente.setNome("Joao");
-        // Set other properties as required
-        // Add actual validation logic
         return paciente;
     }
     
