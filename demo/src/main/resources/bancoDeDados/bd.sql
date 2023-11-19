@@ -1,3 +1,4 @@
+CREATE DATABASE DBProjeto;
 USE DBProjeto;
 
 -- Tabelas de entidades básicas

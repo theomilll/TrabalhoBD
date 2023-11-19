@@ -1,4 +1,11 @@
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Pacientes")
 public class Paciente {
+    @Id
     private String cpf;
     private String nome;
     private String rua;

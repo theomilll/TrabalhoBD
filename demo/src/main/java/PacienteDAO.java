@@ -8,9 +8,15 @@ public class PacienteDAO {
     private static final Logger logger = LoggerFactory.getLogger(PacienteDAO.class);
     private SessionFactory sessionFactory;
 
+    public PacienteDAO(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
     public void salvar(Paciente paciente) {
+        Session session = null;
         Transaction transaction = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try {
+            session = sessionFactory.openSession();
             transaction = session.beginTransaction();
             session.save(paciente);
             transaction.commit();
@@ -19,6 +25,10 @@ public class PacienteDAO {
                 transaction.rollback();
             }
             logger.error("Erro ao salvar o paciente", e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
         }
     }
 
@@ -55,8 +65,5 @@ public class PacienteDAO {
             logger.error("Erro ao deletar o paciente", e);
             throw e;
         }
-    }
-    public PacienteDAO(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
     }
 }
