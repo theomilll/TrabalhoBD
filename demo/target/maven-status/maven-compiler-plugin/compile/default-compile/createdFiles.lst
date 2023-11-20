@@ -1,6 +1,7 @@
 com/bdprojeto/myapp/Paciente.class
 com/bdprojeto/myapp/PacienteService.class
 com/bdprojeto/myapp/IPacienteDAO.class
-HibernateUtil.class
 com/bdprojeto/myapp/Application.class
 com/bdprojeto/myapp/PacienteDAO.class
+com/bdprojeto/myapp/HibernateUtil.class
+com/bdprojeto/myapp/User.class
